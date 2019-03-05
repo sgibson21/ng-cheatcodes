@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgCheatCodesModule } from 'projects/ng-cheatcodes/src/public_api';
+import { NgCheatcodesModule, konamiCheatcode } from 'projects/ng-cheatcodes/src/public_api';
 import { CheatKey } from 'projects/ng-cheatcodes/src/lib/ng-cheatcodes-config-token';
 
 @NgModule({
@@ -10,25 +10,12 @@ import { CheatKey } from 'projects/ng-cheatcodes/src/lib/ng-cheatcodes-config-to
     AppComponent
   ],
   imports: [
-    BrowserModule, NgCheatCodesModule.forRoot([
+    BrowserModule, NgCheatcodesModule.forRoot([
       {
         name: 'a b c',
         cheatCode: [CheatKey.a, CheatKey.b, CheatKey.c]
       },
-      {
-        name: 'konami',
-        cheatCode: [
-          CheatKey.up,
-          CheatKey.up,
-          CheatKey.down,
-          CheatKey.down,
-          CheatKey.left,
-          CheatKey.right,
-          CheatKey.left,
-          CheatKey.right,
-          CheatKey.b,
-          CheatKey.a]
-      }
+      konamiCheatcode
     ])
   ],
   providers: [],

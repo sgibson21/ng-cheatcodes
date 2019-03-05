@@ -33,10 +33,10 @@ export enum CheatKey {
   z = 'z'
 }
 
-export interface NgCheatCodeConfig {
+export interface NgCheatcodeConfig {
   name: string;
   cheatCode: CheatKey[];
   isActive?: boolean;
 }
 
-export const NgCheatCodeConfigToken = new InjectionToken<NgCheatCodeConfig[]>('NgCheatCodeConfig');
+export const NgCheatcodeConfigToken = new InjectionToken<NgCheatcodeConfig[]>('NgCheatcodeConfig');

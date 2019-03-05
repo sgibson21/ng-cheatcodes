@@ -1,10 +1,10 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { NgCheatCodesService } from './ng-cheatcodes.service';
+import { NgCheatcodesService } from './ng-cheatcodes.service';
 
 @Directive({
   selector: '[cheatCode]'
 })
-export class NgCheatCodesDirective {
+export class NgCheatcodesDirective {
 
   @Input()
   public set cheatCode(cheatName: string) {
@@ -19,9 +19,9 @@ export class NgCheatCodesDirective {
   constructor(
     private viewContainer: ViewContainerRef,
     private templateRef: TemplateRef<any>,
-    private ngCheatCodesService: NgCheatCodesService
+    private ngCheatcodesService: NgCheatcodesService
   ) {
-    ngCheatCodesService.cheat.subscribe(cheat => {
+    ngCheatcodesService.cheat.subscribe(cheat => {
       if (cheat === this.cheatName) {
         this.toggleView();
       }
@@ -29,7 +29,7 @@ export class NgCheatCodesDirective {
   }
 
   private toggleView() {
-    const isActive = this.ngCheatCodesService.isActive(this.cheatName);
+    const isActive = this.ngCheatcodesService.isActive(this.cheatName);
     if (!this.hasView && isActive) {
       this.createView();
     } else if (this.hasView && !isActive) {

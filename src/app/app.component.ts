@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgCheatCodesService } from 'projects/ng-cheatcodes/src/public_api';
+import { NgCheatcodesService } from 'projects/ng-cheatcodes/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +12,8 @@ export class AppComponent {
 
   cheatCodes = [];
 
-  constructor(ngCheatCodesService: NgCheatCodesService) {
-    ngCheatCodesService.cheat.subscribe(cheat => {
+  constructor(ngCheatcodesService: NgCheatcodesService) {
+    ngCheatcodesService.cheat.subscribe(cheat => {
       this.cheatCodes.push(cheat);
     });
   }

@@ -1,7 +1,7 @@
 {
   "name": "ng-cheatcodes",
   "description": "Toggle features by adding cheat codes to your Angular application",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/sgibson21/ng-cheatcodes"
@@ -13,7 +13,8 @@
   "keywords": [
     "angular",
     "cheatcodes",
-    "konami"
+    "konami",
+    "easter egg"
   ],
   "license": "MIT",
   "bugs": {

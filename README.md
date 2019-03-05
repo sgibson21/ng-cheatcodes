@@ -1,4 +1,4 @@
-# NgCheatCodes
+# NgCheatcodes
 
 Toggle features by adding cheat codes to your Angular application.
 
@@ -21,7 +21,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import the module
-import { NgCheatCodesModule, CheatKey } from 'ng-cheatcodes';
+import { NgCheatcodesModule, CheatKey } from 'ng-cheatcodes';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { NgCheatCodesModule, CheatKey } from 'ng-cheatcodes';
 
     // Configure the module with your custom cheat codes.
     // Just provide a name and a set of cheat keys
-    NgCheatCodesModule.forRoot([
+    NgCheatcodesModule.forRoot([
       {
         name: 'konami',
         cheatCode: [
@@ -64,11 +64,11 @@ Use the Structural directive in your Angular application just like *ngFor:
 <div *cheatCode="'konami'">Hello World!</div>
 ```
 
-Use the NgCheatCodesService to subscribe to cheat events.
+Use the NgCheatcodesService to subscribe to cheat events.
 
 ```typescript
-constructor(ngCheatCodesService: NgCheatCodesService) {
-  ngCheatCodesService.cheat.subscribe((cheatName: string) => {
+constructor(ngCheatcodesService: NgCheatcodesService) {
+  ngCheatcodesService.cheat.subscribe((cheatName: string) => {
     // Use the cheat name to toggle component behaviour
   });
 }

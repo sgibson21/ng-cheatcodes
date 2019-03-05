@@ -1,23 +1,23 @@
 import { Injectable, Inject } from '@angular/core';
-import { NgCheatCodeConfigToken, CheatKey, NgCheatCodeConfig } from './ng-cheatcodes-config-token';
+import { NgCheatcodeConfigToken, CheatKey, NgCheatcodeConfig } from './ng-cheatcodes-config-token';
 import { fromEvent, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NgCheatCodesService {
+export class NgCheatcodesService {
 
   public cheat = new Subject();
 
-  private cheatCodes: NgCheatCodeConfig[];
+  private cheatCodes: NgCheatcodeConfig[];
 
   private sequence: string[] = [];
 
   private longestLength: number;
 
-  constructor(@Inject(NgCheatCodeConfigToken) config: NgCheatCodeConfig[]) {
+  constructor(@Inject(NgCheatcodeConfigToken) config: NgCheatcodeConfig[]) {
     this.cheatCodes = config;
-    this.longestLength = this.getLengthOfLongestCheatCode(config.map(c => c.cheatCode));
+    this.longestLength = this.getLengthOfLongestCheatcode(config.map(c => c.cheatCode));
     this.listen();
   }
 
@@ -35,7 +35,7 @@ export class NgCheatCodesService {
         this.sequence.shift();
       }
 
-      const match = this.findCheatCodeMatch();
+      const match = this.findCheatcodeMatch();
       if (match) {
         match.isActive = !match.isActive;
         this.cheat.next(match.name);
@@ -44,7 +44,7 @@ export class NgCheatCodesService {
     });
   }
 
-  private findCheatCodeMatch(): NgCheatCodeConfig {
+  private findCheatcodeMatch(): NgCheatcodeConfig {
     return this.cheatCodes.find(cc => this.isMatch(cc.cheatCode));
   }
 
@@ -53,7 +53,7 @@ export class NgCheatCodesService {
     return cheatCode.every((code: string, index: number) => code === toCheck[index]);
   }
 
-  private getLengthOfLongestCheatCode(cheatCodes: CheatKey[][]) {
+  private getLengthOfLongestCheatcode(cheatCodes: CheatKey[][]) {
     return cheatCodes.reduce((maxL, el) => el.length > maxL ? el.length : maxL, 0);
   }
 

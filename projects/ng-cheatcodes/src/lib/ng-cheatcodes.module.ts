@@ -1,22 +1,29 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { NgCheatCodesService } from './ng-cheatcodes.service';
-import { NgCheatCodesDirective } from './ng-cheatcodes.directive';
-import { NgCheatCodeConfig, NgCheatCodeConfigToken } from './ng-cheatcodes-config-token';
+import { NgCheatcodesService } from './ng-cheatcodes.service';
+import { NgCheatcodesDirective } from './ng-cheatcodes.directive';
+import { NgCheatcodeConfig, NgCheatcodeConfigToken } from './ng-cheatcodes-config-token';
+import { defaultCheatcodes } from './default-cheatcodes';
 
 @NgModule({
-  declarations: [NgCheatCodesDirective],
+  declarations: [NgCheatcodesDirective],
   imports: [],
-  exports: [NgCheatCodesDirective]
+  providers: [
+    {
+      provide: NgCheatcodeConfigToken,
+      useValue: defaultCheatcodes
+    }
+  ],
+  exports: [NgCheatcodesDirective]
 })
-export class NgCheatCodesModule {
+export class NgCheatcodesModule {
 
-  public static forRoot(config: NgCheatCodeConfig[]): ModuleWithProviders {
+  public static forRoot(config: NgCheatcodeConfig[]): ModuleWithProviders {
     return {
-      ngModule: NgCheatCodesModule,
+      ngModule: NgCheatcodesModule,
       providers: [
-        NgCheatCodesService,
+        NgCheatcodesService,
         {
-          provide: NgCheatCodeConfigToken,
+          provide: NgCheatcodeConfigToken,
           useValue: config
         }
       ]
