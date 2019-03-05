@@ -1,27 +1,82 @@
-# NgCheatCodesDemo
+# NgCheatCodes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+Toggle features by adding cheat codes to your Angular application.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To install this library, run:
 
-## Code scaffolding
+```bash
+$ npm install ng-cheatcodes --save
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting started
 
-## Build
+Once you have installed ng-cheatcodes, import the module in your Angular application:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-## Running unit tests
+import { AppComponent } from './app.component';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+// Import the module
+import { NgCheatCodesModule, CheatKey } from 'ng-cheatcodes';
 
-## Running end-to-end tests
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    // Configure the module with your custom cheat codes.
+    // Just provide a name and a set of cheat keys
+    NgCheatCodesModule.forRoot([
+      {
+        name: 'konami',
+        cheatCode: [
+          CheatKey.up,
+          CheatKey.up,
+          CheatKey.down,
+          CheatKey.down,
+          CheatKey.left,
+          CheatKey.right,
+          CheatKey.left,
+          CheatKey.right,
+          CheatKey.b,
+          CheatKey.a]
+      }
+    ])
+  ],
+  providers: [ ],
+  bootstrap: [
+    AppComponent
+  ]
+})
+export class AppModule { }
+```
 
-## Further help
+Use the Structural directive in your Angular application just like *ngFor:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```xml
+<!-- Provide the name of the cheat code that the DIV should be toggled by -->
+<div *cheatCode="'konami'">Hello World!</div>
+```
+
+Use the NgCheatCodesService to subscribe to cheat events.
+
+```typescript
+constructor(ngCheatCodesService: NgCheatCodesService) {
+  ngCheatCodesService.cheat.subscribe((cheatName: string) => {
+    // Use the cheat name to toggle component behaviour
+  });
+}
+```
+
+
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+
+## License
+
+MIT ©
