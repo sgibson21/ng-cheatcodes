@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgCheatCodesService } from 'projects/ng-cheatcodes/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ng-cheat-codes-demo';
+
+  title = 'ng-cheatcodes-demo';
+
+  cheatCodes = [];
+
+  constructor(ngCheatCodesService: NgCheatCodesService) {
+    ngCheatCodesService.cheat.subscribe(cheat => {
+      this.cheatCodes.push(cheat);
+    });
+  }
+
 }

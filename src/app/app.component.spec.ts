@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-cheat-codes-demo'`, () => {
+  it(`should have as title 'ng-cheatcodes-demo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ng-cheat-codes-demo');
+    expect(app.title).toEqual('ng-cheatcodes-demo');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-cheat-codes-demo!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-cheatcodes-demo!');
   });
 });

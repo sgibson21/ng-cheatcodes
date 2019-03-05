@@ -1,0 +1,27 @@
+{
+  "name": "ng-cheatcodes",
+  "description": "Toggle features by adding cheat codes to your Angular application",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sgibson21/ng-cheatcodes"
+  },
+  "author": {
+    "name": "Stephen Gibson",
+    "email": "stephen10606@msn.com"
+  },
+  "keywords": [
+    "angular",
+    "cheatcodes",
+    "konami"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgibson21/ng-cheatcodes/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "rxjs": "~6.3.3"
+  }
+}

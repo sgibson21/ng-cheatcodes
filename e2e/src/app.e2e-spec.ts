@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to ng-cheat-codes-demo!');
+    expect(page.getTitleText()).toEqual('Welcome to ng-cheatcodes-demo!');
   });
 
   afterEach(async () => {
