@@ -1,5 +1,6 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { NgCheatcodesService } from './ng-cheatcodes.service';
+import { NgCheatcodeEvent } from './ng-cheatcodes-config-token';
 
 @Directive({
   selector: '[cheatCode]'
@@ -21,8 +22,8 @@ export class NgCheatcodesDirective {
     private templateRef: TemplateRef<any>,
     private ngCheatcodesService: NgCheatcodesService
   ) {
-    ngCheatcodesService.cheat.subscribe(cheat => {
-      if (cheat === this.cheatName) {
+    ngCheatcodesService.cheat.subscribe((cheatcodeEvent: NgCheatcodeEvent) => {
+      if (cheatcodeEvent && cheatcodeEvent.name === this.cheatName) {
         this.toggleView();
       }
     });

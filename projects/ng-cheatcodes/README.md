@@ -110,7 +110,10 @@ NgCheatcodesModule.forRoot([
 Use the Structural directive in your Angular application just like *ngIf:
 
 ```xml
-<!-- Provide the name of the cheat code that must be triggered, for the div to be rendered -->
+<!--
+  Provide the name of the cheat code that must be triggered and active,
+  for the div to be rendered
+-->
 <div *cheatCode="'konami'">Hello World!</div>
 ```
 
@@ -118,8 +121,9 @@ Use the NgCheatcodesService to subscribe to cheat events.
 
 ```typescript
 constructor(ngCheatcodesService: NgCheatcodesService) {
-  ngCheatcodesService.cheat.subscribe((cheatName: string) => {
-    // Use the cheat name to toggle component behaviour
+  ngCheatcodesService.cheat.subscribe((cheatcodeEvent: NgCheatcodeEvent) => {
+    // Use cheatcodeEvent.isActive to toggle component behaviour
+    // cheatcodeEvent.name contains the name of the cheat code triggered
   });
 }
 ```

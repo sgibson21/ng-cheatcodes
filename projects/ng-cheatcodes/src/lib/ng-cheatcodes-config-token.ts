@@ -39,4 +39,9 @@ export interface NgCheatcodeConfig {
   isActive?: boolean;
 }
 
+export interface NgCheatcodeEvent {
+  name: string;
+  isActive: boolean;
+}
+
 export const NgCheatcodeConfigToken = new InjectionToken<NgCheatcodeConfig[]>('NgCheatcodeConfig');

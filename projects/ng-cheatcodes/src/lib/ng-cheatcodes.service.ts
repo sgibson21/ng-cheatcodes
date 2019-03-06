@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { NgCheatcodeConfigToken, CheatKey, NgCheatcodeConfig } from './ng-cheatcodes-config-token';
+import { NgCheatcodeConfigToken, CheatKey, NgCheatcodeConfig, NgCheatcodeEvent } from './ng-cheatcodes-config-token';
 import { fromEvent, Subject } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { fromEvent, Subject } from 'rxjs';
 })
 export class NgCheatcodesService {
 
-  public cheat = new Subject();
+  public cheat = new Subject<NgCheatcodeEvent>();
 
   private cheatCodes: NgCheatcodeConfig[];
 
@@ -38,7 +38,10 @@ export class NgCheatcodesService {
       const match = this.findCheatcodeMatch();
       if (match) {
         match.isActive = !match.isActive;
-        this.cheat.next(match.name);
+        this.cheat.next({
+          name: match.name,
+          isActive: match.isActive
+        });
       }
 
     });

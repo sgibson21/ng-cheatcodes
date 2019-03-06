@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgCheatcodesService } from 'projects/ng-cheatcodes/src/public_api';
+import { NgCheatcodesService, NgCheatcodeEvent } from 'projects/ng-cheatcodes/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,11 @@ export class AppComponent {
 
   title = 'ng-cheatcodes-demo';
 
-  cheatCodes = [];
+  cheatcodeLog: string[] = [];
 
   constructor(ngCheatcodesService: NgCheatcodesService) {
-    ngCheatcodesService.cheat.subscribe(cheat => {
-      this.cheatCodes.push(cheat);
+    ngCheatcodesService.cheat.subscribe((cheatcodeEvent: NgCheatcodeEvent) => {
+      this.cheatcodeLog.push(`"${cheatcodeEvent.name}" ${cheatcodeEvent.isActive ? 'activated' : 'deactivated'}`);
     });
   }
 
