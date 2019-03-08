@@ -29,6 +29,7 @@ import { NgCheatcodesModule } from 'ng-cheatcodes';
   ],
   imports: [
     BrowserModule,
+    // add it to the imports array
     NgCheatcodesModule
   ],
   providers: [ ],
@@ -107,6 +108,25 @@ NgCheatcodesModule.forRoot([
 ]
 ```
 
+## Available CheatKeys
+
+```typescript
+  // directional keys
+  left, up, right, down
+  
+  // letters (lowercase only)
+  a - z
+  
+  // numbers
+  zero, one, two, three, four, five,
+  six, seven, eight, nine,
+  
+  // other
+  dot, dash, space
+```
+
+## Examples
+
 Use the Structural directive in your Angular application just like *ngIf:
 
 ```xml
@@ -127,7 +147,6 @@ constructor(ngCheatcodesService: NgCheatcodesService) {
   });
 }
 ```
-
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
 

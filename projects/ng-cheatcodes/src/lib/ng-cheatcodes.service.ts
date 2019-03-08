@@ -28,8 +28,8 @@ export class NgCheatcodesService {
 
   private listen() {
     fromEvent(document, 'keydown').subscribe((e: KeyboardEvent) => {
-      const keyCode = e.key;
-      this.sequence.push(keyCode);
+      const key = e.key;
+      this.sequence.push(key);
 
       if (this.sequence.length > this.longestLength) {
         this.sequence.shift();

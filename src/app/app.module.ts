@@ -10,11 +10,29 @@ import { NgCheatcodesModule, konamiCheatcode, CheatKey } from 'projects/ng-cheat
   ],
   imports: [
     BrowserModule, NgCheatcodesModule.forRoot([
+      konamiCheatcode,
       {
         name: 'a b c',
         cheatCode: [CheatKey.a, CheatKey.b, CheatKey.c]
       },
-      konamiCheatcode
+      {
+        name: 'super user',
+        cheatCode: [
+          CheatKey.s,
+          CheatKey.u,
+          CheatKey.p,
+          CheatKey.e,
+          CheatKey.r,
+          CheatKey.space,
+          CheatKey.u,
+          CheatKey.s,
+          CheatKey.e,
+          CheatKey.r,
+          CheatKey.one,
+          CheatKey.two,
+          CheatKey.three
+        ]
+      }
     ])
   ],
   providers: [],
